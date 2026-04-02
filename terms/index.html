@@ -104,11 +104,16 @@
       margin-bottom: 12px;
     }
     ul li { margin-bottom: 6px; }
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 16px 0;
+    }
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 16px 0;
       font-size: 14px;
+      min-width: 400px;
     }
     th {
       background: #f5f3f0;
@@ -141,10 +146,22 @@
     }
     footer a { color: var(--muted); }
 
-    [lang="en"] { display: none; }
-    [lang="ko"] { display: block; }
-    body.en [lang="en"] { display: block; }
-    body.en [lang="ko"] { display: none; }
+    div[lang="en"] { display: none; }
+    div[lang="ko"] { display: block; }
+    body.en div[lang="en"] { display: block; }
+    body.en div[lang="ko"] { display: none; }
+    header span[lang] { display: inline; }
+    body.en header span[lang="ko"] { display: none; }
+    body.en header span[lang="en"] { display: inline; }
+
+    h2 + h3 { margin-top: 12px; }
+
+    @media (max-width: 600px) {
+      .container { margin: 28px auto; padding: 0 16px 60px; }
+      h1 { font-size: 26px; }
+      header { padding: 16px; }
+      header a { font-size: 17px; }
+    }
   </style>
 </head>
 <body>
@@ -195,11 +212,11 @@
   <h2>3. 구독 및 결제</h2>
 
   <h3>플랜</h3>
-  <table>
+  <div class="table-wrap"><table>
     <tr><th>플랜</th><th>가격</th><th>결제 주기</th></tr>
     <tr><td>Pro 월간</td><td>$4.99</td><td>매월 자동 갱신</td></tr>
     <tr><td>Pro 연간</td><td>$35.99</td><td>매년 자동 갱신 (월 $3.00)</td></tr>
-  </table>
+  </table></div>
 
   <h3>자동 갱신</h3>
   <p>구독은 현재 기간 만료 24시간 전 자동으로 갱신됩니다. 갱신 금액은 구독 시 고지된 가격으로 Apple ID 계정에 청구됩니다.</p>
@@ -280,11 +297,11 @@
   <h2>3. Subscriptions &amp; Payments</h2>
 
   <h3>Plans</h3>
-  <table>
+  <div class="table-wrap"><table>
     <tr><th>Plan</th><th>Price</th><th>Billing</th></tr>
     <tr><td>Pro Monthly</td><td>$4.99</td><td>Auto-renews monthly</td></tr>
     <tr><td>Pro Yearly</td><td>$35.99</td><td>Auto-renews annually ($3.00/mo)</td></tr>
-  </table>
+  </table></div>
 
   <h3>Auto-renewal</h3>
   <p>Subscriptions automatically renew 24 hours before the current period ends. Your Apple ID account will be charged the stated price.</p>
