@@ -152,7 +152,8 @@
     div[lang="ko"] { display: block; }
     body.en div[lang="en"] { display: block; }
     body.en div[lang="ko"] { display: none; }
-    header span[lang] { display: inline; }
+    header span[lang="ko"] { display: inline; }
+    header span[lang="en"] { display: none; }
     body.en header span[lang="ko"] { display: none; }
     body.en header span[lang="en"] { display: inline; }
 
@@ -168,7 +169,7 @@
 </head>
 <body>
 <header>
-  <a href="../privacy/">Mora</a>
+  <a href="../">Mora</a>
   <span>/</span>
   <span lang="ko">이용약관</span>
   <span lang="en">Terms of Service</span>
@@ -199,7 +200,7 @@
 
   <h3>Pro 구독 기능</h3>
   <ul>
-    <li>무제한 AI 음성 입력 및 분석</li>
+    <li>AI 분석의 일일 무료 횟수 제한 해제 (과도한 연속 요청은 일시 제한될 수 있음)</li>
     <li>전체 화면 알람</li>
     <li>홈/잠금화면 위젯</li>
 
@@ -208,7 +209,7 @@
   <p>알람 전달은 기기의 권한·설정에 따라 달라집니다. Mora는 의료기기가 아니며 진단이나 치료를 제공하지 않습니다.</p>
   <h2>2. 계정</h2>
   <ul>
-    <li>서비스 이용에는 Apple ID를 통한 로그인이 필요합니다.</li>
+    <li>기본 일정과 알림은 로그인 없이 사용할 수 있습니다. AI 분석과 Pro 구독에는 Apple 로그인이 필요합니다. 로그인 없이 만든 일정은 계정 일정과 별도로 보관하며 사용자가 선택할 때만 복사합니다.</li>
     <li>계정 보안은 사용자 본인이 책임집니다.</li>
     <li>계정 삭제는 <strong>설정 → 계정 삭제</strong>를 통해 언제든지 가능합니다.</li>
   </ul>
@@ -286,7 +287,7 @@
 
   <h3>Pro subscription features</h3>
   <ul>
-    <li>Unlimited AI voice input and analysis</li>
+    <li>AI analysis without the free daily quota (excessive consecutive requests may be temporarily limited)</li>
     <li>Full-screen smart alarms</li>
     <li>Home/lock screen widgets</li>
 
@@ -295,7 +296,7 @@
   <p>Alarm delivery depends on device permissions and settings. Mora is not a medical device and does not provide diagnosis or treatment.</p>
   <h2>2. Account</h2>
   <ul>
-    <li>An Apple ID is required to use the Service.</li>
+    <li>Basic schedules and reminders work without signing in. Apple sign-in is required for AI analysis and Pro subscriptions. Schedules created without an account remain separate and are copied into an account only when you choose.</li>
     <li>You are responsible for maintaining the security of your account.</li>
     <li>You may delete your account at any time via <strong>Settings → Delete Account</strong> in the app.</li>
   </ul>
@@ -353,12 +354,13 @@
 </div>
 
 <footer>
-  <p>© 2026 Mora &nbsp;·&nbsp; <a href="/privacy">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms">Terms of Service</a></p>
+  <p>© 2026 Mora &nbsp;·&nbsp; <a href="../privacy/">Privacy Policy</a> &nbsp;·&nbsp; <a href="../terms/">Terms of Service</a></p>
 </footer>
 
 <script>
   function setLang(lang) {
     document.body.className = lang === 'en' ? 'en' : '';
+    document.documentElement.lang = lang === 'en' ? 'en' : 'ko';
     document.querySelectorAll('.lang-toggle button').forEach((btn, i) => {
       btn.classList.toggle('active', (i === 0 && lang === 'ko') || (i === 1 && lang === 'en'));
     });

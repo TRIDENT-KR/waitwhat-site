@@ -157,7 +157,8 @@
     div[lang="ko"] { display: block; }
     body.en div[lang="en"] { display: block; }
     body.en div[lang="ko"] { display: none; }
-    header span[lang] { display: inline; }
+    header span[lang="ko"] { display: inline; }
+    header span[lang="en"] { display: none; }
     body.en header span[lang="ko"] { display: none; }
     body.en header span[lang="en"] { display: inline; }
 
@@ -173,7 +174,7 @@
 </head>
 <body>
 <header>
-  <a href="../terms/">Mora</a>
+  <a href="../">Mora</a>
   <span>/</span>
   <span lang="ko">개인정보 처리방침</span>
   <span lang="en">Privacy Policy</span>
@@ -206,16 +207,16 @@
     <li><strong>Google Gemini:</strong> 요청한 AI 분석. <a href="https://ai.google.dev/gemini-api/terms">Gemini API 데이터 이용 조건</a> · <a href="https://policies.google.com/privacy">Google 개인정보 처리방침</a>. Google의 처리는 해당 서비스 조건 및 운영 프로젝트의 설정에 따릅니다.</li>
     <li><strong>Apple:</strong> 로그인, 음성 인식, 구독 결제·복원·알림. <a href="https://www.apple.com/legal/privacy/">Apple 개인정보 처리방침</a></li>
   </ul>
-  <p>AI 전송은 선택 사항이며 앱에서 별도로 동의를 받습니다. 동의하지 않아도 일정을 직접 추가·수정할 수 있습니다. <strong>설정 → AI 데이터 전송</strong>에서 동의를 철회하면 이후 AI 요청이 중단되지만, 이미 외부 서비스에 보낸 데이터는 회수되지 않습니다. 분석 전에 초안을 확인하고 민감한 정보는 포함하지 마세요. 마케팅 목적으로 개인정보를 판매하거나 공유하지 않습니다.</p>
+  <p>기본 일정과 알림은 계정 없이 사용할 수 있습니다. AI 분석과 구독에는 Apple 로그인이 필요합니다. AI 전송은 선택 사항이며 앱에서 별도로 동의를 받습니다. 동의하지 않아도 일정을 직접 추가·수정할 수 있습니다. <strong>설정 → AI 데이터 전송</strong>에서 동의를 철회하면 이후 AI 요청이 중단되지만, 이미 외부 서비스에 보낸 데이터는 회수되지 않습니다. 분석 전에 초안을 확인하고 민감한 정보는 포함하지 마세요. 마케팅 목적으로 개인정보를 판매하거나 공유하지 않습니다.</p>
   <h2>3. 보관 및 삭제</h2>
   <ul>
-    <li>기기에 저장된 일정은 직접 지우거나 앱의 계정 삭제 절차가 완료되면 해당 기기에서 제거됩니다. 다른 기기에 남아 있는 로컬 사본은 해당 기기에서 앱 데이터를 제거해야 합니다.</li>
+    <li>로그인 없이 만든 일정과 로그인한 계정의 일정은 기기에 별도로 보관합니다. 로그인 후 사용자가 선택하면 기기 일정을 계정으로 복사할 수 있으며 원본은 유지됩니다. 계정 삭제는 해당 계정의 기기 일정을 제거합니다. 별도로 보관된 게스트 일정과 다른 기기의 로컬 사본은 각각 해당 기기에서 지워야 합니다.</li>
     <li>서버의 AI 결과 재사용 기간은 10분입니다. 만료 후 정리 작업이 결과를 제거합니다. 요청·사용량 및 상세 운영 기록은 최대 14일의 보존 기간을 두고 정리하며, 일별 운영 통계는 90일 보관합니다. 정리 작업은 주기적으로 실행되므로 만료 시점과 실제 제거 시점에 차이가 있을 수 있습니다.</li>
-    <li>계정 삭제 확인 기록은 삭제 완료 후 30일 보관할 수 있습니다. 삭제가 완료되지 않은 요청과 재시도 상태는 절차를 마칠 때까지 보관합니다. App Store 서버 알림 기록은 90일, 구독의 부정한 재연결을 방지하는 제한된 거래 표식은 기존 구독 만료에 따라 최대 400일 보관할 수 있습니다. 이러한 기록은 일정 백업을 위한 것이 아닙니다.</li>
+    <li>계정 삭제 확인 기록은 삭제 완료 후 30일 보관할 수 있습니다. 삭제가 완료되지 않은 요청과 재시도 상태는 절차를 마칠 때까지 보관합니다. App Store 서버 알림 기록은 90일, 구독의 부정한 재연결을 방지하는 제한된 거래 표식은 계정 삭제 시점부터 최대 400일 보관할 수 있으며 후속 알림이 와도 이 기한은 연장하지 않습니다. 이러한 기록은 일정 백업을 위한 것이 아닙니다.</li>
     <li>외부 서비스가 처리하는 데이터와 백업의 보관·삭제는 해당 서비스 정책 및 설정의 적용을 받습니다. 이미 전송한 정보를 모든 외부 서비스에서 즉시 삭제한다고 보장하지 않습니다.</li>
   </ul>
   <h2>4. 계정 삭제와 권리</h2>
-  <p><strong>설정 → 계정 삭제</strong>에서 삭제를 요청할 수 있습니다. 본인 확인을 위해 Apple 재인증을 거치고 Apple 로그인 연결 해제와 서버·기기 데이터 삭제를 진행합니다. 처리 중에는 진행 상태를 표시하며 오류가 발생하면 재시도가 필요할 수 있습니다. 서버에서 삭제 완료를 확인하면 앱은 로그인 화면으로 돌아갑니다. 처리 중 또는 오류 상태에서는 삭제가 끝난 것으로 간주하지 마세요.</p>
+  <p><strong>설정 → 계정 삭제</strong>에서 삭제를 요청할 수 있습니다. 본인 확인을 위해 Apple 재인증을 거치고 Apple 로그인 연결 해제와 서버·기기 데이터 삭제를 진행합니다. 처리 중에는 진행 상태를 표시하며 오류가 발생하면 재시도가 필요할 수 있습니다. 서버 삭제 확인과 기기 정리를 마치면 완료 안내를 표시하고 계정 없이 사용하는 화면으로 돌아갑니다. 보통 수분 내 처리되지만 재인증이나 네트워크 오류로 지연될 수 있습니다. 앱을 다시 열면 보류 중인 정리를 이어서 시도합니다. 처리 중 또는 오류 상태에서는 삭제가 끝난 것으로 간주하지 마세요.</p>
   <p>계정 삭제는 App Store 구독의 해지를 대신하지 않습니다. 구독은 iPhone 설정의 Apple 계정 → 구독에서 관리하세요. 보관 정보의 열람·정정·삭제에 관한 문의는 <a href="mailto:trident1398@gmail.com">trident1398@gmail.com</a>으로 요청할 수 있습니다.</p>
   <h2>5. 보호 조치와 어린이</h2>
   <p>전송에는 HTTPS/TLS를 사용하고 계정별 접근 제어로 서버 기록을 보호합니다. 본 앱은 만 13세 미만 아동을 대상으로 하지 않으며 아동의 개인정보를 의도적으로 수집하지 않습니다. 정책이 변경되면 이 페이지에 수정 내용을 게시합니다.</p>
@@ -245,16 +246,16 @@
     <li><strong>Google Gemini:</strong> Requested AI analysis. <a href="https://ai.google.dev/gemini-api/terms">Gemini API data terms</a> · <a href="https://policies.google.com/privacy">Google privacy policy</a>. Google's handling is governed by its service terms and the operating project's settings.</li>
     <li><strong>Apple:</strong> Sign-in, speech recognition, subscription payments, restoration and notifications. <a href="https://www.apple.com/legal/privacy/">Apple privacy policy</a></li>
   </ul>
-  <p>AI sharing is optional and requires separate in-app consent. You can add and edit tasks manually without it. Withdrawing consent in <strong>Settings → AI data sharing</strong> stops future AI requests but cannot recall data already sent. Review drafts before sending and avoid sensitive information. We do not sell or share personal information for marketing.</p>
+  <p>Basic schedules and reminders work without an account. AI analysis and subscriptions require Apple sign-in. AI sharing is optional and requires separate in-app consent. You can add and edit tasks manually without it. Withdrawing consent in <strong>Settings → AI data sharing</strong> stops future AI requests but cannot recall data already sent. Review drafts before sending and avoid sensitive information. We do not sell or share personal information for marketing.</p>
   <h2>3. Retention and removal</h2>
   <ul>
-    <li>Local tasks remain until you remove them or account deletion completes on that device. Local copies on other devices must be removed on those devices.</li>
+    <li>Schedules created without signing in and each signed-in account’s schedules are stored separately on the device. After sign-in, you may choose to copy local schedules into your account; originals remain. Account deletion removes that account’s local schedules. Separate guest schedules and local copies on other devices must be removed on their respective devices.</li>
     <li>Server AI results can be reused for 10 minutes; scheduled cleanup removes expired results. Request, quota and detailed operational records use retention periods of up to 14 days; daily operational aggregates use 90 days. Cleanup runs periodically, so expiry and physical removal may occur at different times.</li>
-    <li>Deletion records may be retained for 30 days after completion. Incomplete requests and retry state remain until the deletion process is resolved. App Store notification records may remain for 90 days. Limited transaction markers preventing abusive subscription rebinding may remain for up to 400 days depending on the existing subscription expiry. These records are not task backups.</li>
+    <li>Deletion records may be retained for 30 days after completion. Incomplete requests and retry state remain until the deletion process is resolved. App Store notification records may remain for 90 days. Limited transaction markers preventing abusive subscription rebinding may remain for up to 400 days from account deletion. Later notifications do not extend this deadline. These records are not task backups.</li>
     <li>External service data and backups follow the providers' policies and settings. We do not guarantee immediate removal of previously transmitted data from all external services.</li>
   </ul>
   <h2>4. Account deletion and your rights</h2>
-  <p>Request deletion at <strong>Settings → Delete Account</strong>. Apple reauthentication verifies your identity before revoking the Apple sign-in connection and deleting server and local account data. The app displays progress; failures may require retrying. After the server confirms deletion, the app returns to the sign-in screen. A pending or failed status does not mean deletion is complete.</p>
+  <p>Request deletion at <strong>Settings → Delete Account</strong>. Apple reauthentication verifies your identity before revoking the Apple sign-in connection and deleting server and local account data. The app displays progress; failures may require retrying. After confirming server deletion and completing local cleanup, the app shows confirmation and returns to local use without an account. Processing normally takes a few minutes but reauthentication or network failures can delay it. Reopening the app resumes pending cleanup. A pending or failed status does not mean deletion is complete.</p>
   <p>Deleting your account does not cancel an App Store subscription. Manage it under your Apple account's Subscriptions in iPhone Settings. To request access, correction or deletion of retained information, contact <a href="mailto:trident1398@gmail.com">trident1398@gmail.com</a>.</p>
   <h2>5. Safeguards and children</h2>
   <p>We use HTTPS/TLS in transit and account-based access controls for server records. This app is not directed at children under 13 and does not knowingly collect their personal information. Policy changes will be published on this page.</p>
@@ -262,12 +263,13 @@
 </div>
 
 <footer>
-  <p>© 2026 Mora &nbsp;·&nbsp; <a href="/privacy">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms">Terms of Service</a></p>
+  <p>© 2026 Mora &nbsp;·&nbsp; <a href="../privacy/">Privacy Policy</a> &nbsp;·&nbsp; <a href="../terms/">Terms of Service</a></p>
 </footer>
 
 <script>
   function setLang(lang) {
     document.body.className = lang === 'en' ? 'en' : '';
+    document.documentElement.lang = lang === 'en' ? 'en' : 'ko';
     document.querySelectorAll('.lang-toggle button').forEach((btn, i) => {
       btn.classList.toggle('active', (i === 0 && lang === 'ko') || (i === 1 && lang === 'en'));
     });
