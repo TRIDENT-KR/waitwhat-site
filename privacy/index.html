@@ -153,216 +153,180 @@
     }
     footer a { color: var(--muted); }
 
-    div[lang="en"] { display: none; }
-    div[lang="ko"] { display: block; }
-    body.en div[lang="en"] { display: block; }
-    body.en div[lang="ko"] { display: none; }
-    header span[lang] { display: inline; }
-    body.en header span[lang="ko"] { display: none; }
-    body.en header span[lang="en"] { display: inline; }
+    div[lang], header span[lang] { display: none; }
+    html[lang="ko"] div[lang="ko"],
+    html[lang="en"] div[lang="en"],
+    html[lang="ja"] div[lang="ja"] { display: block; }
+    html[lang="ko"] header span[lang="ko"],
+    html[lang="en"] header span[lang="en"],
+    html[lang="ja"] header span[lang="ja"] { display: inline; }
+    :focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; }
 
     h2 + h3 { margin-top: 12px; }
 
     @media (max-width: 600px) {
       .container { margin: 28px auto; padding: 0 16px 60px; }
       h1 { font-size: 26px; }
-      header { padding: 16px; }
+      header { padding: 16px; flex-wrap: wrap; }
+      .lang-toggle { width: 100%; justify-content: flex-end; }
       header a { font-size: 17px; }
     }
   </style>
 </head>
 <body>
 <header>
-  <a href="/">Mora</a>
+  <a href="../">Mora</a>
   <span>/</span>
   <span lang="ko">개인정보 처리방침</span>
   <span lang="en">Privacy Policy</span>
-  <div class="lang-toggle">
-    <button class="active" onclick="setLang('ko')">한국어</button>
-    <button onclick="setLang('en')">English</button>
+  <span lang="ja">プライバシーポリシー</span>
+  <div class="lang-toggle" aria-label="Language">
+    <button type="button" class="active" lang="ko" data-lang="ko" aria-pressed="true" onclick="setLang('ko')">한국어</button>
+    <button type="button" lang="en" data-lang="en" aria-pressed="false" onclick="setLang('en')">English</button>
+    <button type="button" lang="ja" data-lang="ja" aria-pressed="false" onclick="setLang('ja')">日本語</button>
   </div>
 </header>
 
 <!-- 한국어 -->
 <div lang="ko">
 <div class="container">
+
   <div class="badge">개인정보 처리방침</div>
   <h1>개인정보 처리방침</h1>
-  <p class="effective-date">시행일: 2026년 4월 2일</p>
-
-  <p>Mora(이하 "앱")은 음성 AI 기반 루틴 및 할 일 관리 서비스로, ADHD 성향을 가진 사용자가 일상을 더 쉽게 관리할 수 있도록 돕습니다. 본 방침은 앱이 수집하는 정보와 그 사용 방법을 안내합니다.</p>
-
-  <h2>1. 수집하는 정보</h2>
-
-  <h3>계정 정보</h3>
+  <p class="effective-date">최종 수정: 2026년 9월 30일 · 출시 버전 기준</p>
+  <p>Mora는 루틴과 할 일을 관리하는 앱입니다. 이 방침은 계정, 선택적으로 사용하는 AI 분석, 구독 및 계정 삭제 과정에서 처리되는 정보를 설명합니다. 개인정보 관련 문의는 <a href="mailto:trident1398@gmail.com">trident1398@gmail.com</a>으로 보내주세요.</p>
+  <div class="callout"><strong>만 18세 이상 전용:</strong> Mora는 게스트 사용을 포함해 만 18세 이상만 이용할 수 있습니다. 시작 전에 나이를 직접 확인해 주세요. 이 절차는 자기 확인이며 신분증을 통한 나이 인증이 아닙니다.</div>
+  <h2>1. 처리하는 정보와 목적</h2>
   <ul>
-    <li>Apple ID 이메일 (Sign in with Apple 사용 시)</li>
-    <li>Apple이 제공하는 익명 사용자 식별자</li>
-    <li>Apple을 통해 이메일 숨기기를 선택한 경우 실제 이메일은 수집되지 않습니다.</li>
+    <li><strong>로그인:</strong> Apple 로그인 식별자와 제공된 이메일(이메일 숨기기를 선택한 경우 Apple의 비공개 릴레이 주소), Supabase 계정 식별자 및 인증 세션을 계정 인증에 사용합니다.</li>
+    <li><strong>이용 연령 확인:</strong> 생년월일이나 신분증을 수집하지 않습니다. 기기에는 게스트와 각 계정의 자기 확인 결과·고지 버전·확인 시각을 별도로 저장하며, 만 18세 미만이라고 응답한 경우 이용 제한 상태를 기기에 저장합니다. 로그인한 계정의 서버에는 만 18세 이상 확인 기록(계정 식별자, 고지 버전, 서버 확인 시각)만 저장하며 만 18세 미만 응답은 서버에 저장하지 않습니다. 게스트의 기기 내 확인은 계정의 서버 확인을 대신하지 않습니다.</li>
+    <li><strong>일정과 설정:</strong> 일정·루틴·할 일과 앱 설정은 기기에 저장됩니다. 홈·잠금 화면 위젯에는 기기 내 앱 공유 저장소를 통해 필요한 일정 정보가 전달됩니다. 이 버전은 일정의 클라우드 백업·기기 간 동기화를 제공하지 않습니다.</li>
+    <li><strong>음성 전사:</strong> 마이크를 누르고 기기 권한을 허용하면 Apple 음성 인식으로 편집 가능한 초안을 만듭니다. 음성이 Apple에서 처리될 수 있으며 기기에서만 처리된다고 보장하지 않습니다. 원본 음성을 Mora의 AI 분석 서버나 Gemini에 보내지 않습니다.</li>
+    <li><strong>AI 분석:</strong> 동의 후 분석을 누르면 입력한 글 또는 수정한 음성 초안, 현재 날짜·시간과 앱 언어가 Supabase를 거쳐 Google Gemini로 전달됩니다. 전체 일정 목록, Apple 이메일과 로그인 토큰은 Gemini에 보내지 않습니다. 서버에는 재시도 중복 방지를 위한 입력 해시와 짧은 기간의 검증된 결과, 일별 사용량을 저장합니다.</li>
+    <li><strong>구독:</strong> Apple 거래 식별자, 상품, 구독 상태·만료 시각과 계정 연결을 구매 검증·복원·중복 사용 방지에 사용합니다. 카드 번호와 결제 수단 정보는 Apple이 처리합니다.</li>
+    <li><strong>서비스 운영:</strong> 요청 식별자, 처리 시간, 오류 코드 등 제한된 운영 정보를 장애 대응·보안에 사용합니다. 앱의 서버 코드에는 원본 입력·모델 응답·로그인 토큰을 운영 로그에 기록하지 않도록 제한을 두고 있습니다.</li>
   </ul>
-
-  <h3>앱 사용 데이터</h3>
+  <h2>2. 외부 서비스와 선택권</h2>
   <ul>
-    <li>사용자가 직접 입력한 태스크, 루틴, 일정 내용</li>
-    <li>음성 입력 텍스트 (음성 인식 후 텍스트로 변환된 내용만 서버로 전송, 원본 오디오는 기기에서만 처리)</li>
-    <li>앱 내 설정 값 (언어, 테마, 알림 설정 등)</li>
+    <li><strong>Supabase:</strong> 인증, AI 요청 중계, 연령 확인·사용량·구독·삭제 처리 기록 보관. <a href="https://supabase.com/privacy">Supabase 개인정보 처리방침</a></li>
+    <li><strong>Google Gemini:</strong> 요청한 AI 분석. <a href="https://ai.google.dev/gemini-api/terms">Gemini API 데이터 이용 조건</a> · <a href="https://policies.google.com/privacy">Google 개인정보 처리방침</a>. Google의 데이터 보관 및 서비스 개선을 위한 이용 여부는 해당 서비스 조건과 운영 프로젝트의 서비스 유형·설정에 따릅니다.</li>
+    <li><strong>Apple:</strong> 로그인, 음성 인식, 구독 결제·복원·알림. <a href="https://www.apple.com/legal/privacy/">Apple 개인정보 처리방침</a></li>
   </ul>
-
-  <h3>결제 정보</h3>
+  <p>기본 일정과 알림은 계정 없이 사용할 수 있습니다. AI 분석과 구독에는 Apple 로그인이 필요합니다. AI 전송은 선택 사항이며 앱에서 별도로 동의를 받습니다. 동의하지 않아도 일정을 직접 추가·수정할 수 있습니다. <strong>설정 → AI 데이터 전송</strong>에서 동의를 철회하면 이후 AI 요청이 중단되지만, 이미 외부 서비스에 보낸 데이터는 회수되지 않습니다. 분석 전에 초안을 확인하고 민감한 정보는 포함하지 마세요. 마케팅 목적으로 개인정보를 판매하거나 공유하지 않습니다.</p>
+  <h2>3. 보관 및 삭제</h2>
   <ul>
-    <li>구독 상태 (Pro 여부)</li>
-    <li>결제 정보는 Apple이 직접 처리하며, 당사는 카드 번호 등 결제 수단 정보를 수집하지 않습니다.</li>
+    <li>로그인 없이 만든 일정과 로그인한 계정의 일정은 기기에 별도로 보관합니다. 로그인 후 사용자가 선택하면 기기 일정을 계정으로 복사할 수 있으며 원본은 유지됩니다. 계정 삭제는 해당 계정의 기기 일정을 제거합니다. 별도로 보관된 게스트 일정과 다른 기기의 로컬 사본은 각각 해당 기기에서 지워야 합니다.</li>
+    <li>계정의 서버 연령 확인 기록은 계정 삭제 시 함께 제거하며 별도로 보관하지 않습니다. 해당 계정의 기기 내 확인 기록도 제거합니다. 게스트 확인과 기기 이용 제한은 별도의 로컬 기록으로, 계정 삭제만으로 제거되지 않습니다.</li>
+    <li>서버의 AI 결과 재사용 기간은 10분입니다. 만료 후 정리 작업이 결과를 제거합니다. 요청·사용량 및 상세 운영 기록은 최대 14일의 보존 기간을 두고 정리하며, 일별 운영 통계는 90일 보관합니다. 정리 작업은 주기적으로 실행되므로 만료 시점과 실제 제거 시점에 차이가 있을 수 있습니다.</li>
+    <li>계정 삭제 확인 기록은 삭제 완료 후 30일 보관할 수 있습니다. 삭제가 완료되지 않은 요청과 재시도 상태는 절차를 마칠 때까지 보관합니다. App Store 서버 알림 기록은 90일, 구독의 부정한 재연결을 방지하는 제한된 거래 표식은 계정 삭제 시점부터 최대 400일 보관할 수 있으며 후속 알림이 와도 이 기한은 연장하지 않습니다. 이러한 기록은 일정 백업을 위한 것이 아닙니다.</li>
+    <li>외부 서비스가 처리하는 데이터와 백업의 보관·삭제는 해당 서비스 정책 및 설정의 적용을 받습니다. 이미 전송한 정보를 모든 외부 서비스에서 즉시 삭제한다고 보장하지 않습니다.</li>
   </ul>
-
-  <h3>자동 수집 정보</h3>
-  <ul>
-    <li>앱 오류 및 충돌 로그 (개선 목적)</li>
-    <li>기기 정보 (iOS 버전, 기기 모델 — 호환성 확인 목적)</li>
-  </ul>
-
-  <h2>2. 정보 사용 목적</h2>
-  <div class="table-wrap"><table>
-    <tr><th>목적</th><th>사용 정보</th></tr>
-    <tr><td>서비스 제공 (태스크 저장/동기화)</td><td>계정 정보, 태스크 데이터</td></tr>
-    <tr><td>AI 분석 (음성→태스크 자동 분류)</td><td>입력 텍스트, 현재 시각, 언어 설정</td></tr>
-    <tr><td>알림 발송</td><td>태스크 시간 정보</td></tr>
-    <tr><td>구독 관리</td><td>구독 상태</td></tr>
-    <tr><td>서비스 개선</td><td>오류 로그, 기기 정보</td></tr>
-  </table></div>
-
-  <h2>3. 제3자 공유</h2>
-  <p>당사는 다음 제3자 서비스를 이용합니다:</p>
-  <div class="table-wrap"><table>
-    <tr><th>서비스</th><th>용도</th><th>개인정보처리방침</th></tr>
-    <tr><td><strong>Supabase</strong></td><td>인증, 데이터 저장, AI Edge Function 실행</td><td><a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a></td></tr>
-    <tr><td><strong>Apple</strong></td><td>Sign in with Apple, 인앱 결제</td><td><a href="https://www.apple.com/legal/privacy" target="_blank">apple.com/legal/privacy</a></td></tr>
-    <tr><td><strong>OpenAI / Anthropic</strong></td><td>음성 텍스트 AI 분석 (Supabase Edge Function 경유)</td><td>해당 사의 방침 적용</td></tr>
-  </table></div>
-  <div class="callout">당사는 마케팅 목적으로 개인정보를 제3자에게 판매하거나 공유하지 않습니다.</div>
-
-  <h2>4. 데이터 보관 기간</h2>
-  <ul>
-    <li><strong>계정 및 태스크 데이터:</strong> 서비스 이용 기간 동안 보관</li>
-    <li><strong>계정 삭제 시:</strong> 앱 내 설정 → 계정 삭제를 통해 즉시 전체 삭제 가능</li>
-    <li><strong>오류 로그:</strong> 최대 30일 보관 후 자동 삭제</li>
-  </ul>
-
-  <h2>5. 이용자 권리</h2>
-  <ul>
-    <li><strong>열람:</strong> 보관 중인 본인 데이터 열람 요청 가능</li>
-    <li><strong>삭제:</strong> 앱 내 <strong>설정 → 계정 삭제</strong>를 통해 모든 데이터 즉시 삭제 (App Store 심사 요구사항 준수)</li>
-    <li><strong>정정:</strong> <a href="mailto:trident1398@gmail.com">trident1398@gmail.com</a>으로 문의</li>
-  </ul>
-
-  <h2>6. 어린이 개인정보 보호</h2>
-  <p>본 앱은 만 13세 미만 아동을 대상으로 하지 않으며, 아동의 개인정보를 의도적으로 수집하지 않습니다.</p>
-
-  <h2>7. 보안</h2>
-  <ul>
-    <li>모든 데이터 전송은 HTTPS/TLS로 암호화</li>
-    <li>Supabase Row Level Security(RLS)로 사용자 간 데이터 격리</li>
-    <li>인증은 Apple의 보안 인프라를 통해 처리</li>
-  </ul>
-
-  <h2>8. 문의</h2>
-  <p>개인정보 관련 문의: <a href="mailto:trident1398@gmail.com"><strong>trident1398@gmail.com</strong></a></p>
+  <h2>4. 계정 삭제와 권리</h2>
+  <p><strong>설정 → 계정 삭제</strong>에서 삭제를 요청할 수 있습니다. 본인 확인을 위해 Apple 재인증을 거치고 Apple 로그인 연결 해제와 서버·기기 데이터 삭제를 진행합니다. 처리 중에는 진행 상태를 표시하며 오류가 발생하면 재시도가 필요할 수 있습니다. 서버 삭제 확인과 기기 정리를 마치면 완료 안내를 표시하고 계정 없이 사용하는 화면으로 돌아갑니다. 보통 수분 내 처리되지만 재인증이나 네트워크 오류로 지연될 수 있습니다. 앱을 다시 열면 보류 중인 정리를 이어서 시도합니다. 처리 중 또는 오류 상태에서는 삭제가 끝난 것으로 간주하지 마세요.</p>
+  <p>계정 삭제는 App Store 구독의 해지를 대신하지 않습니다. 구독은 iPhone 설정의 Apple 계정 → 구독에서 관리하세요. 보관 정보의 열람·정정·삭제에 관한 문의는 <a href="mailto:trident1398@gmail.com">trident1398@gmail.com</a>으로 요청할 수 있습니다.</p>
+  <h2>5. 보호 조치와 이용 연령</h2>
+  <p>전송에는 HTTPS/TLS를 사용하고 계정별 접근 제어로 서버 기록을 보호합니다. Mora는 만 18세 미만에게 제공하지 않습니다. Apple 로그인이나 App Store 연령 등급이 실제 나이를 확인했다는 뜻은 아닙니다. 만 18세 미만이라고 응답하면 일반 앱 기능과 AI 이용이 제한되며, 계정 삭제와 Apple 구독 관리 경로는 계속 제공됩니다.</p>
+  <p>연령 확인을 잘못 선택했거나 만 18세 미만 이용자의 정보가 처리되었다고 생각하면 <a href="mailto:trident1398@gmail.com">trident1398@gmail.com</a>으로 정정·삭제를 문의해 주세요. 문의에 생년월일이나 신분증 사본을 보내지 마세요. 정책이 변경되면 이 페이지에 수정 내용을 게시합니다.</p>
 </div>
 </div>
 
 <!-- English -->
 <div lang="en">
 <div class="container">
+
   <div class="badge">Privacy Policy</div>
   <h1>Privacy Policy</h1>
-  <p class="effective-date">Effective Date: April 2, 2026</p>
-
-  <p>Mora ("the App") is a voice-first AI task manager for routines and to-dos, designed to help people with ADHD manage their daily lives. This policy explains what information we collect and how we use it.</p>
-
-  <h2>1. Information We Collect</h2>
-
-  <h3>Account Information</h3>
+  <p class="effective-date">Last updated: September 30, 2026 · Release version</p>
+  <p>Mora helps you manage routines and tasks. This policy describes information processed for accounts, optional AI analysis, subscriptions and account deletion. Contact <a href="mailto:trident1398@gmail.com">trident1398@gmail.com</a> about privacy.</p>
+  <div class="callout"><strong>For adults 18 and older:</strong> All Mora use, including guest use, is limited to people aged 18 or older. You must confirm this before using the app. This is a self-declaration, not identity-based age verification.</div>
+  <h2>1. Information and purposes</h2>
   <ul>
-    <li>Apple ID email (when using Sign in with Apple)</li>
-    <li>Anonymous user identifier provided by Apple</li>
-    <li>If you choose to hide your email via Apple, your real email is never collected.</li>
+    <li><strong>Sign-in:</strong> We use the Apple sign-in identifier and supplied email (Apple's private relay address if you hide your email), Supabase user identifier and authentication session to authenticate your account.</li>
+    <li><strong>Age eligibility:</strong> We do not collect a date of birth or identity document. The device stores separate self-declaration results, notice versions and confirmation times for guest use and each account, and a local restriction if you state you are under 18. For a signed-in account, the server stores only an 18-or-older confirmation record: account identifier, notice version and server confirmation time. Under-18 responses are not stored on the server. Local guest acceptance does not replace account confirmation on the server.</li>
+    <li><strong>Tasks and settings:</strong> Tasks, routines, appointments and app preferences are stored on your device. Widgets receive relevant task information through on-device shared app storage. This version does not provide cloud task backup or synchronization between devices.</li>
+    <li><strong>Speech transcription:</strong> After you tap the microphone and allow device permissions, Apple speech recognition creates an editable draft. Apple may process audio; we do not guarantee exclusively on-device transcription. Raw audio is not sent to Mora's AI analysis server or Gemini.</li>
+    <li><strong>AI analysis:</strong> After consent, tapping Analyze sends your text or edited speech draft, current date/time and app language through Supabase to Google Gemini. Your full task list, Apple email and login tokens are not sent to Gemini. Our server stores an input hash for duplicate prevention, short-lived validated results and daily usage.</li>
+    <li><strong>Subscriptions:</strong> Apple transaction identifiers, product, subscription status, expiry and account bindings support verification, restoration and abuse prevention. Apple handles card numbers and payment methods.</li>
+    <li><strong>Operations:</strong> Limited request identifiers, durations and error codes support reliability and security. Our server code restricts logging of raw input, model responses and login tokens.</li>
   </ul>
-
-  <h3>App Usage Data</h3>
+  <h2>2. External services and your choices</h2>
   <ul>
-    <li>Tasks, routines, and schedules you create</li>
-    <li>Voice input text (only the transcribed text is sent to our server — raw audio is processed on-device only)</li>
-    <li>App settings (language, theme, notification preferences)</li>
+    <li><strong>Supabase:</strong> Authentication, AI request relay, age confirmation, usage, subscription and deletion records. <a href="https://supabase.com/privacy">Supabase privacy policy</a></li>
+    <li><strong>Google Gemini:</strong> Requested AI analysis. <a href="https://ai.google.dev/gemini-api/terms">Gemini API data terms</a> · <a href="https://policies.google.com/privacy">Google privacy policy</a>. Google's data retention and use for service improvement depend on its service terms and the operating project's service type and settings.</li>
+    <li><strong>Apple:</strong> Sign-in, speech recognition, subscription payments, restoration and notifications. <a href="https://www.apple.com/legal/privacy/">Apple privacy policy</a></li>
   </ul>
-
-  <h3>Payment Information</h3>
+  <p>Basic schedules and reminders work without an account. AI analysis and subscriptions require Apple sign-in. AI sharing is optional and requires separate in-app consent. You can add and edit tasks manually without it. Withdrawing consent in <strong>Settings → AI data sharing</strong> stops future AI requests but cannot recall data already sent. Review drafts before sending and avoid sensitive information. We do not sell or share personal information for marketing.</p>
+  <h2>3. Retention and removal</h2>
   <ul>
-    <li>Subscription status (Pro or Free)</li>
-    <li>Payment details are handled entirely by Apple. We never receive your card number or payment method.</li>
+    <li>Schedules created without signing in and each signed-in account’s schedules are stored separately on the device. After sign-in, you may choose to copy local schedules into your account; originals remain. Account deletion removes that account’s local schedules. Separate guest schedules and local copies on other devices must be removed on their respective devices.</li>
+    <li>The account’s server age confirmation record is removed with account deletion and is not separately retained. Its on-device account confirmation record is also removed. Guest confirmation and the device restriction are separate local records and are not removed by account deletion alone.</li>
+    <li>Server AI results can be reused for 10 minutes; scheduled cleanup removes expired results. Request, quota and detailed operational records use retention periods of up to 14 days; daily operational aggregates use 90 days. Cleanup runs periodically, so expiry and physical removal may occur at different times.</li>
+    <li>Deletion records may be retained for 30 days after completion. Incomplete requests and retry state remain until the deletion process is resolved. App Store notification records may remain for 90 days. Limited transaction markers preventing abusive subscription rebinding may remain for up to 400 days from account deletion. Later notifications do not extend this deadline. These records are not task backups.</li>
+    <li>External service data and backups follow the providers' policies and settings. We do not guarantee immediate removal of previously transmitted data from all external services.</li>
   </ul>
+  <h2>4. Account deletion and your rights</h2>
+  <p>Request deletion at <strong>Settings → Delete Account</strong>. Apple reauthentication verifies your identity before revoking the Apple sign-in connection and deleting server and local account data. The app displays progress; failures may require retrying. After confirming server deletion and completing local cleanup, the app shows confirmation and returns to local use without an account. Processing normally takes a few minutes but reauthentication or network failures can delay it. Reopening the app resumes pending cleanup. A pending or failed status does not mean deletion is complete.</p>
+  <p>Deleting your account does not cancel an App Store subscription. Manage it under your Apple account's Subscriptions in iPhone Settings. To request access, correction or deletion of retained information, contact <a href="mailto:trident1398@gmail.com">trident1398@gmail.com</a>.</p>
+  <h2>5. Safeguards and age eligibility</h2>
+  <p>We use HTTPS/TLS in transit and account-based access controls for server records. Mora is not available to people under 18. Apple sign-in and the App Store age rating do not verify your actual age. If you state you are under 18, ordinary app features and AI are restricted; account deletion and Apple subscription management remain accessible.</p>
+  <p>If you selected an age response by mistake or believe we processed information from someone under 18, contact <a href="mailto:trident1398@gmail.com">trident1398@gmail.com</a> to request correction or deletion. Do not email a date of birth or identity document. Policy changes will be published on this page.</p>
+</div>
+</div>
 
-  <h3>Automatically Collected</h3>
+<!-- 日本語 -->
+<div lang="ja">
+<div class="container">
+  <div class="badge">プライバシーポリシー</div>
+  <h1>プライバシーポリシー</h1>
+  <p class="effective-date">最終更新：2026年9月30日 · リリース版</p>
+  <p>Moraはルーティンとタスクを管理するアプリです。このポリシーでは、アカウント、任意のAI分析、サブスクリプション、アカウント削除に伴う情報の取り扱いを説明します。お問い合わせは<a href="mailto:trident1398@gmail.com">trident1398@gmail.com</a>までお送りください。</p>
+  <div class="callout"><strong>18歳以上の方専用：</strong>ゲスト利用を含め、Moraは満18歳以上の方のみ利用できます。利用前にご自身で確認してください。この手続きは自己申告であり、本人確認書類による年齢認証ではありません。</div>
+  <h2>1. 取り扱う情報と目的</h2>
   <ul>
-    <li>Crash and error logs (for improvement purposes)</li>
-    <li>Device info: iOS version, device model (for compatibility)</li>
+    <li><strong>サインイン：</strong>Appleのサインイン識別子、提供されたメールアドレス（メールを非公開にした場合はAppleのプライベートリレーアドレス）、Supabaseのユーザー識別子と認証セッションをアカウント認証に使用します。</li>
+    <li><strong>利用年齢の確認：</strong>生年月日や本人確認書類は収集しません。端末にはゲストと各アカウントの自己申告の結果、案内のバージョン、確認日時を別々に保存し、18歳未満と回答した場合は利用制限の状態も保存します。サインインしたアカウントのサーバーには、18歳以上であることの確認記録（アカウント識別子、案内のバージョン、サーバーの確認日時）のみを保存します。18歳未満の回答はサーバーに保存しません。端末内のゲスト確認は、サーバーでのアカウント確認を代替しません。</li>
+    <li><strong>予定と設定：</strong>タスク、ルーティン、予定、アプリ設定は端末に保存します。ウィジェットには端末内のアプリ共有領域を通じて必要な予定情報を渡します。このバージョンは予定のクラウドバックアップや端末間の同期を提供しません。</li>
+    <li><strong>音声の文字起こし：</strong>マイクをタップして端末の権限を許可すると、Appleの音声認識で編集可能な下書きを作ります。音声がAppleで処理される場合があり、端末内だけで処理されることは保証しません。元の音声をMoraのAI分析サーバーやGeminiに送りません。</li>
+    <li><strong>AI分析：</strong>同意後に分析をタップすると、入力した文章または編集した音声の下書き、現在の日時、アプリの言語をSupabase経由でGoogle Geminiに送ります。予定一覧全体、Appleのメールアドレス、ログイントークンはGeminiに送りません。サーバーには重複防止用の入力ハッシュ、短期間の検証済み結果、日ごとの利用回数を保存します。</li>
+    <li><strong>サブスクリプション：</strong>Appleの取引識別子、商品、購読状態、有効期限、アカウントとの関連付けを購入検証、復元、不正利用防止に使用します。カード番号や支払方法はAppleが取り扱います。</li>
+    <li><strong>サービス運営：</strong>リクエスト識別子、処理時間、エラーコードなどの限定的な運営情報を障害対応と安全性のために使用します。サーバーのコードでは、入力原文、モデルの回答、ログイントークンの運用ログへの記録を制限しています。</li>
   </ul>
-
-  <h2>2. How We Use Your Information</h2>
-  <div class="table-wrap"><table>
-    <tr><th>Purpose</th><th>Data Used</th></tr>
-    <tr><td>Providing the service (task storage/sync)</td><td>Account info, task data</td></tr>
-    <tr><td>AI analysis (voice → task classification)</td><td>Input text, current time, language setting</td></tr>
-    <tr><td>Sending notifications</td><td>Task time data</td></tr>
-    <tr><td>Subscription management</td><td>Subscription status</td></tr>
-    <tr><td>Service improvement</td><td>Error logs, device info</td></tr>
-  </table></div>
-
-  <h2>3. Third-Party Services</h2>
-  <div class="table-wrap"><table>
-    <tr><th>Service</th><th>Purpose</th><th>Privacy Policy</th></tr>
-    <tr><td><strong>Supabase</strong></td><td>Auth, data storage, AI Edge Function</td><td><a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a></td></tr>
-    <tr><td><strong>Apple</strong></td><td>Sign in with Apple, in-app purchases</td><td><a href="https://www.apple.com/legal/privacy" target="_blank">apple.com/legal/privacy</a></td></tr>
-    <tr><td><strong>OpenAI / Anthropic</strong></td><td>AI text analysis (via Supabase Edge Function)</td><td>Their respective policies apply</td></tr>
-  </table></div>
-  <div class="callout">We do not sell or share your personal information for marketing purposes.</div>
-
-  <h2>4. Data Retention</h2>
+  <h2>2. 外部サービスと選択肢</h2>
   <ul>
-    <li><strong>Account and task data:</strong> Retained while you use the service</li>
-    <li><strong>Account deletion:</strong> Delete all data instantly via Settings → Delete Account in the app</li>
-    <li><strong>Error logs:</strong> Automatically deleted after 30 days</li>
+    <li><strong>Supabase：</strong>認証、AIリクエストの中継、年齢確認、利用回数、購読、削除処理の記録。<a href="https://supabase.com/privacy">Supabaseのプライバシーポリシー</a></li>
+    <li><strong>Google Gemini：</strong>依頼されたAI分析。<a href="https://ai.google.dev/gemini-api/terms">Gemini APIのデータ利用条件</a> · <a href="https://policies.google.com/privacy">Googleのプライバシーポリシー</a>。Googleによるデータの保存やサービス改善への利用は、適用される規約と運用プロジェクトのサービス種別・設定に従います。</li>
+    <li><strong>Apple：</strong>サインイン、音声認識、購読の決済・復元・通知。<a href="https://www.apple.com/legal/privacy/">Appleのプライバシーポリシー</a></li>
   </ul>
-
-  <h2>5. Your Rights</h2>
+  <p>基本の予定と通知はアカウントなしで利用できます。AI分析とサブスクリプションにはAppleでのサインインが必要です。AIへのデータ送信は任意で、アプリ内で別途同意を求めます。同意しなくても予定を手動で追加・編集できます。<strong>設定 → AIデータ共有</strong>で同意を撤回すると以後のAIリクエストは停止しますが、送信済みのデータを取り戻すことはできません。送信前に下書きを確認し、機密性の高い情報を含めないでください。マーケティング目的で個人情報を販売・共有しません。</p>
+  <h2>3. 保存期間と削除</h2>
   <ul>
-    <li><strong>Access:</strong> You may request access to your stored data</li>
-    <li><strong>Deletion:</strong> Delete all data instantly via <strong>Settings → Delete Account</strong> in the app</li>
-    <li><strong>Correction:</strong> Contact <a href="mailto:trident1398@gmail.com">trident1398@gmail.com</a></li>
+    <li>サインインせずに作成した予定と各アカウントの予定は端末内で別々に保存します。サインイン後、希望する場合は端末の予定をアカウントにコピーでき、元の予定は残ります。アカウント削除ではそのアカウントの端末内の予定を削除します。ゲストの予定や別の端末にあるローカルのコピーは、それぞれの端末で削除する必要があります。</li>
+    <li>サーバー上のアカウントの年齢確認記録はアカウント削除時に削除し、別途保持しません。端末内の該当アカウントの確認記録も削除します。ゲストの確認と端末の利用制限は別のローカル記録であり、アカウント削除だけでは削除されません。</li>
+    <li>サーバーのAI結果は10分間再利用できます。有効期限後に定期処理で結果を削除します。リクエスト、利用回数、詳細な運用記録は最長14日、日別の運用集計は90日の保存期間を設けます。処理は定期的に実行するため、期限と実際の削除のタイミングが異なる場合があります。</li>
+    <li>アカウント削除の確認記録は完了後30日間保持する場合があります。未完了のリクエストと再試行状態は処理が完了するまで保持します。App Storeのサーバー通知記録は90日間、不正な購読の再関連付けを防ぐ限定的な取引記録はアカウント削除時から最長400日間保持する場合があります。後続の通知があってもこの期限は延長しません。これらは予定のバックアップではありません。</li>
+    <li>外部サービスで処理されるデータとバックアップの保存・削除には各サービスのポリシーと設定が適用されます。送信済みの情報をすべての外部サービスから直ちに削除することは保証しません。</li>
   </ul>
-
-  <h2>6. Children's Privacy</h2>
-  <p>This app is not directed at children under 13. We do not knowingly collect personal information from children.</p>
-
-  <h2>7. Security</h2>
-  <ul>
-    <li>All data in transit is encrypted via HTTPS/TLS</li>
-    <li>Supabase Row Level Security (RLS) isolates each user's data</li>
-    <li>Authentication is handled through Apple's secure infrastructure</li>
-  </ul>
-
-  <h2>8. Contact</h2>
-  <p>Privacy inquiries: <a href="mailto:trident1398@gmail.com"><strong>trident1398@gmail.com</strong></a></p>
+  <h2>4. アカウント削除と権利</h2>
+  <p><strong>設定 → アカウント削除</strong>から申請できます。Appleで再認証して本人確認を行い、Appleサインインの連携解除とサーバー・端末のアカウントデータ削除を進めます。アプリに進行状況を表示し、エラーが発生した場合は再試行が必要になることがあります。サーバー削除と端末の整理が完了すると確認画面を表示し、アカウントなしの利用に戻ります。通常は数分ですが、再認証や通信エラーで遅れる場合があります。アプリを開き直すと保留中の整理を再試行します。処理中やエラーの表示を削除完了と見なさないでください。</p>
+  <p>アカウントの削除ではApp Storeのサブスクリプションは解約されません。iPhoneの設定のAppleアカウント → サブスクリプションで管理してください。保持する情報の閲覧、訂正、削除のご依頼は<a href="mailto:trident1398@gmail.com">trident1398@gmail.com</a>までお送りください。</p>
+  <h2>5. 保護措置と利用年齢</h2>
+  <p>通信にはHTTPS/TLSを使い、アカウント単位のアクセス制御でサーバー記録を保護します。Moraは18歳未満の方には提供しません。AppleでのサインインやApp Storeの年齢区分は実際の年齢を確認するものではありません。18歳未満と回答すると通常のアプリ機能とAIの利用を制限しますが、アカウント削除とAppleのサブスクリプション管理は引き続き利用できます。</p>
+  <p>年齢の回答を誤って選択した場合や、18歳未満の方の情報が処理されたと思われる場合は、<a href="mailto:trident1398@gmail.com">trident1398@gmail.com</a>へ訂正・削除をご相談ください。生年月日や本人確認書類をメールで送らないでください。ポリシーの変更はこのページに掲載します。</p>
 </div>
 </div>
 
 <footer>
-  <p>© 2026 Mora &nbsp;·&nbsp; <a href="/privacy">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms">Terms of Service</a></p>
+  <p>© 2026 Mora &nbsp;·&nbsp; <a href="../privacy/">Privacy Policy</a> &nbsp;·&nbsp; <a href="../terms/">Terms of Service</a></p>
 </footer>
 
 <script>
   function setLang(lang) {
-    document.body.className = lang === 'en' ? 'en' : '';
-    document.querySelectorAll('.lang-toggle button').forEach((btn, i) => {
-      btn.classList.toggle('active', (i === 0 && lang === 'ko') || (i === 1 && lang === 'en'));
+    if (!['ko', 'en', 'ja'].includes(lang)) return;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.lang-toggle button').forEach((btn) => {
+      const active = btn.dataset.lang === lang;
+      btn.classList.toggle('active', active);
+      btn.setAttribute('aria-pressed', String(active));
     });
   }
 </script>
