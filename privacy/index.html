@@ -240,7 +240,7 @@
   <ul>
     <li>로그인 없이 만든 일정은 기기에 보관합니다. 이미 Apple로 로그인한 계정의 일정은 기기 안에 따로 보관하며, 사용자가 선택하면 로그인 없이 만든 일정을 그 계정으로 복사할 수 있고 원본은 유지됩니다. Apple 로그인 계정을 삭제하면 그 계정의 기기 일정이 제거됩니다. 로그인 없이 만든 일정과 다른 기기의 로컬 사본은 각각 해당 기기에서 지워야 합니다.</li>
     <li>서버의 연령 확인 기록은 계정 삭제 시 함께 제거하며 별도로 보관하지 않습니다. Apple 로그인 계정을 삭제하면 그 계정의 기기 내 확인 기록도 제거합니다. 로그인 없이 쓰는 기기의 확인 기록과 이용 제한 상태는 별도의 로컬 기록으로, 계정 삭제만으로 제거되지 않습니다.</li>
-    <li>앱을 삭제해도 익명 계정과 그 서버 기록(계정 식별자, 연령 확인 기록, 구독 연결)은 자동으로 지워지지 않습니다. <span class="todo">[확인 필요: 쓰지 않는 익명 계정의 보관 기간과 정리 방식]</span></li>
+    <li>앱을 삭제해도 익명 계정과 그 서버 기록(계정 식별자, 연령 확인 기록, 구독 연결)은 자동으로 지워지지 않습니다. 서버 기록까지 지우려면 앱을 삭제하기 전에 <strong>설정 → 계정 삭제</strong>를 이용해 주세요. <span class="todo">[확인 필요: 쓰지 않는 익명 계정의 보관 기간과 정리 방식]</span></li>
     <li>서버의 AI 결과 재사용 기간은 10분입니다. 만료 후 정리 작업이 결과를 제거합니다. 요청·사용량 및 상세 운영 기록은 최대 14일의 보존 기간을 두고 정리하며, 일별 운영 통계는 90일 보관합니다. 정리 작업은 주기적으로 실행되므로 만료 시점과 실제 제거 시점에 차이가 있을 수 있습니다.</li>
     <li>계정 삭제 확인 기록은 삭제 완료 후 30일 보관할 수 있습니다. 삭제가 완료되지 않은 요청과 재시도 상태는 절차를 마칠 때까지 보관합니다. App Store 서버 알림 기록은 90일, 구독의 부정한 재연결을 방지하는 제한된 거래 표식은 계정 삭제 시점부터 최대 400일 보관할 수 있으며 후속 알림이 와도 이 기한은 연장하지 않습니다. 이러한 기록은 일정 백업을 위한 것이 아닙니다.</li>
     <li>다른 계정과 구독을 이어 쓰는 연결 기록은 그 계정이 삭제되거나 5개 상한을 넘어 연결이 풀릴 때 지웁니다. 삭제된 계정이 등록한 구독 거래를 다른 계정이 아직 이어 쓰고 있으면, 그 거래 기록은 연결이 모두 끝날 때까지 보관한 뒤 원래 보관 기한을 적용합니다.</li>
@@ -248,7 +248,7 @@
   </ul>
   <h2>5. 계정 삭제와 권리</h2>
   <p><strong>Apple로 로그인한 계정</strong>은 <strong>설정 → 계정 삭제</strong>에서 삭제를 요청할 수 있습니다. 본인 확인을 위해 Apple 재인증을 거치고 Apple 로그인 연결 해제와 서버·기기 데이터 삭제를 진행합니다. 처리 중에는 진행 상태를 표시하며 오류가 발생하면 재시도가 필요할 수 있습니다. 서버 삭제 확인과 기기 정리를 마치면 완료 안내를 표시하고 계정 없이 사용하는 화면으로 돌아갑니다. 보통 수분 내 처리되지만 재인증이나 네트워크 오류로 지연될 수 있습니다. 앱을 다시 열면 보류 중인 정리를 이어서 시도합니다. 처리 중 또는 오류 상태에서는 삭제가 끝난 것으로 간주하지 마세요.</p>
-  <p><strong>로그인 없이 쓰는 경우(익명 계정)</strong>, 1.0 버전의 앱에는 익명 계정을 직접 삭제하는 메뉴가 없습니다. 익명 계정과 그 서버 기록의 삭제를 원하면 <a href="mailto:trident1398@gmail.com">trident1398@gmail.com</a>으로 요청해 주세요. <span class="todo">[확인 필요: 앱 안 익명 계정 삭제 메뉴 추가 여부, 이메일 요청 시 해당 익명 계정을 찾는 방법]</span></p>
+  <p><strong>로그인 없이 쓰는 경우(익명 계정)</strong>에도 <strong>설정 → 계정 삭제</strong>에서 삭제할 수 있으며, Apple 재인증은 필요하지 않습니다. 서버의 익명 계정과 그 기록(AI 사용 기록, 구독 연결, 연령 확인 기록)을 삭제합니다. 기기에만 저장된 루틴과 일정은 그대로 남고, 앱을 삭제하면 함께 지워집니다. 삭제한 뒤 AI 분석처럼 서버가 필요한 기능을 다시 쓰면 앱이 새 익명 계정을 만듭니다. 앱에서 삭제가 되지 않으면 <a href="mailto:trident1398@gmail.com">trident1398@gmail.com</a>으로 요청해 주세요.</p>
   <p>계정 삭제는 App Store 구독의 해지를 대신하지 않습니다. 구독은 iPhone 설정의 Apple 계정 → 구독에서 관리하세요. 보관 정보의 열람·정정·삭제에 관한 문의는 <a href="mailto:trident1398@gmail.com">trident1398@gmail.com</a>으로 요청할 수 있습니다.</p>
   <h2>6. 보호 조치와 이용 연령</h2>
   <p>전송에는 HTTPS/TLS를 사용하고 계정별 접근 제어로 서버 기록을 보호합니다. Mora는 만 18세 미만에게 제공하지 않습니다. Apple 로그인이나 App Store 연령 등급이 실제 나이를 확인했다는 뜻은 아닙니다. 만 18세 미만이라고 응답하면 일반 앱 기능과 AI 이용이 제한되며, 계정 삭제와 Apple 구독 관리 경로는 계속 제공됩니다.</p>
@@ -300,7 +300,7 @@
   <ul>
     <li>Schedules created without signing in are stored on the device. Schedules of an account already signed in with Apple are stored separately on the device; you may choose to copy schedules created without signing in into that account, and the originals remain. Deleting an Apple sign-in account removes that account’s local schedules. Schedules created without signing in and local copies on other devices must be removed on their respective devices.</li>
     <li>The server age confirmation record is removed with account deletion and is not separately retained. Deleting an Apple sign-in account also removes its on-device confirmation record. The confirmation and restriction stored for use without signing in are separate local records and are not removed by account deletion alone.</li>
-    <li>Deleting the app does not automatically remove the anonymous account or its server records (account identifier, age confirmation record and subscription links). <span class="todo">[TODO: retention period and cleanup for unused anonymous accounts]</span></li>
+    <li>Deleting the app does not automatically remove the anonymous account or its server records (account identifier, age confirmation record and subscription links). To remove the server records too, use <strong>Settings → Delete Account</strong> before deleting the app. <span class="todo">[TODO: retention period and cleanup for unused anonymous accounts]</span></li>
     <li>Server AI results can be reused for 10 minutes; scheduled cleanup removes expired results. Request, quota and detailed operational records use retention periods of up to 14 days; daily operational aggregates use 90 days. Cleanup runs periodically, so expiry and physical removal may occur at different times.</li>
     <li>Deletion records may be retained for 30 days after completion. Incomplete requests and retry state remain until the deletion process is resolved. App Store notification records may remain for 90 days. Limited transaction markers preventing abusive subscription rebinding may remain for up to 400 days from account deletion. Later notifications do not extend this deadline. These records are not task backups.</li>
     <li>A link that lets another account share a subscription is removed when that account is deleted or unlinked by the 5-account limit. If other accounts still share a subscription registered by a deleted account, its transaction record is kept until no linked account remains, and the original retention deadline then applies.</li>
@@ -308,7 +308,7 @@
   </ul>
   <h2>5. Account deletion and your rights</h2>
   <p><strong>Accounts signed in with Apple</strong> can request deletion at <strong>Settings → Delete Account</strong>. Apple reauthentication verifies your identity before revoking the Apple sign-in connection and deleting server and local account data. The app displays progress; failures may require retrying. After confirming server deletion and completing local cleanup, the app shows confirmation and returns to local use without an account. Processing normally takes a few minutes but reauthentication or network failures can delay it. Reopening the app resumes pending cleanup. A pending or failed status does not mean deletion is complete.</p>
-  <p><strong>If you use Mora without signing in (anonymous account)</strong>, version 1.0 has no in-app option to delete the anonymous account. To have the anonymous account and its server records deleted, contact <a href="mailto:trident1398@gmail.com">trident1398@gmail.com</a>. <span class="todo">[TODO: whether an in-app deletion option for anonymous accounts will ship, and how an email request is matched to the right anonymous account]</span></p>
+  <p><strong>If you use Mora without signing in (anonymous account)</strong>, you can also delete it at <strong>Settings → Delete Account</strong>, with no Apple reauthentication. This deletes the anonymous account and its server records (AI usage records, subscription links and age confirmation record) from our server. Routines and appointments stored only on your device stay there until you delete the app. If you later use a feature that needs the server, such as AI analysis, the app creates a new anonymous account. If deletion does not work in the app, contact <a href="mailto:trident1398@gmail.com">trident1398@gmail.com</a>.</p>
   <p>Deleting your account does not cancel an App Store subscription. Manage it under your Apple account's Subscriptions in iPhone Settings. To request access, correction or deletion of retained information, contact <a href="mailto:trident1398@gmail.com">trident1398@gmail.com</a>.</p>
   <h2>6. Safeguards and age eligibility</h2>
   <p>We use HTTPS/TLS in transit and account-based access controls for server records. Mora is not available to people under 18. Apple sign-in and the App Store age rating do not verify your actual age. If you state you are under 18, ordinary app features and AI are restricted; account deletion and Apple subscription management remain accessible.</p>
@@ -359,7 +359,7 @@
   <ul>
     <li>サインインせずに作成した予定は端末に保存します。すでにAppleでサインインしているアカウントの予定は端末内で別に保存し、希望する場合はサインインせずに作成した予定をそのアカウントにコピーでき、元の予定は残ります。Appleでサインインしたアカウントを削除すると、そのアカウントの端末内の予定を削除します。サインインせずに作成した予定や別の端末にあるローカルのコピーは、それぞれの端末で削除する必要があります。</li>
     <li>サーバーの年齢確認記録はアカウント削除時に削除し、別途保持しません。Appleでサインインしたアカウントを削除すると、そのアカウントの端末内の確認記録も削除します。サインインせずに使う端末の確認記録と利用制限は別のローカル記録であり、アカウント削除だけでは削除されません。</li>
-    <li>アプリを削除しても、匿名アカウントとそのサーバー記録（アカウント識別子、年齢確認記録、サブスクリプションの関連付け）は自動では削除されません。<span class="todo">[要確認：使われていない匿名アカウントの保存期間と整理方法]</span></li>
+    <li>アプリを削除しても、匿名アカウントとそのサーバー記録（アカウント識別子、年齢確認記録、サブスクリプションの関連付け）は自動では削除されません。サーバー記録も削除するには、アプリを削除する前に<strong>設定 → アカウント削除</strong>をご利用ください。<span class="todo">[要確認：使われていない匿名アカウントの保存期間と整理方法]</span></li>
     <li>サーバーのAI結果は10分間再利用できます。有効期限後に定期処理で結果を削除します。リクエスト、利用回数、詳細な運用記録は最長14日、日別の運用集計は90日の保存期間を設けます。処理は定期的に実行するため、期限と実際の削除のタイミングが異なる場合があります。</li>
     <li>アカウント削除の確認記録は完了後30日間保持する場合があります。未完了のリクエストと再試行状態は処理が完了するまで保持します。App Storeのサーバー通知記録は90日間、不正な購読の再関連付けを防ぐ限定的な取引記録はアカウント削除時から最長400日間保持する場合があります。後続の通知があってもこの期限は延長しません。これらは予定のバックアップではありません。</li>
     <li>ほかのアカウントでサブスクリプションを共有するための関連付けの記録は、そのアカウントが削除されたときや、5アカウントの上限を超えて解除されたときに削除します。削除されたアカウントが登録した購読の取引をほかのアカウントがまだ共有している場合、その取引記録は関連付けがすべてなくなるまで保持し、その後は本来の保存期限を適用します。</li>
@@ -367,7 +367,7 @@
   </ul>
   <h2>5. アカウント削除と権利</h2>
   <p><strong>Appleでサインインしたアカウント</strong>は、<strong>設定 → アカウント削除</strong>から申請できます。Appleで再認証して本人確認を行い、Appleサインインの連携解除とサーバー・端末のアカウントデータ削除を進めます。アプリに進行状況を表示し、エラーが発生した場合は再試行が必要になることがあります。サーバー削除と端末の整理が完了すると確認画面を表示し、アカウントなしの利用に戻ります。通常は数分ですが、再認証や通信エラーで遅れる場合があります。アプリを開き直すと保留中の整理を再試行します。処理中やエラーの表示を削除完了と見なさないでください。</p>
-  <p><strong>サインインせずに使う場合（匿名アカウント）</strong>、バージョン1.0のアプリには匿名アカウントを直接削除するメニューがありません。匿名アカウントとそのサーバー記録の削除をご希望の場合は、<a href="mailto:trident1398@gmail.com">trident1398@gmail.com</a>までご依頼ください。<span class="todo">[要確認：アプリ内の匿名アカウント削除メニューを追加するか、メールでの依頼時に該当する匿名アカウントを特定する方法]</span></p>
+  <p><strong>サインインせずに使う場合（匿名アカウント）</strong>も、<strong>設定 → アカウント削除</strong>から削除でき、Appleでの再認証は不要です。サーバー上の匿名アカウントとその記録（AIの利用記録、サブスクリプションの関連付け、年齢確認の記録）を削除します。端末だけに保存されたルーティンと予定はそのまま残り、アプリを削除すると一緒に消えます。削除後にAI分析などサーバーが必要な機能を使うと、アプリが新しい匿名アカウントを作成します。アプリで削除できない場合は、<a href="mailto:trident1398@gmail.com">trident1398@gmail.com</a>までご依頼ください。</p>
   <p>アカウントの削除ではApp Storeのサブスクリプションは解約されません。iPhoneの設定のAppleアカウント → サブスクリプションで管理してください。保持する情報の閲覧、訂正、削除のご依頼は<a href="mailto:trident1398@gmail.com">trident1398@gmail.com</a>までお送りください。</p>
   <h2>6. 保護措置と利用年齢</h2>
   <p>通信にはHTTPS/TLSを使い、アカウント単位のアクセス制御でサーバー記録を保護します。Moraは18歳未満の方には提供しません。AppleでのサインインやApp Storeの年齢区分は実際の年齢を確認するものではありません。18歳未満と回答すると通常のアプリ機能とAIの利用を制限しますが、アカウント削除とAppleのサブスクリプション管理は引き続き利用できます。</p>
