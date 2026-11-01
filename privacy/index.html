@@ -227,19 +227,28 @@
   <p>AI 데이터 전송에 동의한 뒤 말을 마치거나 글을 보내면 아래와 같이 정보가 국외로 전송됩니다. 동의하지 않거나 동의를 철회하면 전송하지 않으며, AI 분석을 제외한 기능은 그대로 쓸 수 있습니다.</p>
   <div class="table-wrap"><table>
     <tr><th>구분</th><th>Anthropic</th><th>Google</th></tr>
-    <tr><td>이전받는 자</td><td>Anthropic (Claude API) <span class="todo">[확인 필요: 계약 법인명·연락처]</span></td><td>Google (Gemini API) <span class="todo">[확인 필요: 계약 법인명·연락처]</span></td></tr>
-    <tr><td>이전 국가</td><td><span class="todo">[확인 필요]</span></td><td><span class="todo">[확인 필요]</span></td></tr>
+    <tr><td>이전받는 자</td><td>Anthropic, PBC (Claude API)<br>연락처: privacy@anthropic.com</td><td>Google Cloud Korea LLC (Gemini API 유료 서비스)<br>연락처: 서울특별시 강남구 테헤란로 152 강남파이낸스센터 20층</td></tr>
+    <tr><td>이전 국가</td><td>미국 등 Anthropic이 데이터를 처리하는 국가</td><td>미국 등 Google이 시설을 운영하는 국가(일시 저장·캐시 포함)</td></tr>
     <tr><td>이전 시점·방법</td><td>말을 마치거나 글을 보낼 때마다 Supabase 서버를 거쳐 암호화 통신(HTTPS/TLS)으로 전송</td><td>Claude를 사용할 수 없거나 올바른 결과를 받지 못했을 때 같은 방법으로 전송</td></tr>
     <tr><td>이전 항목</td><td colspan="2">음성 인식 문장 또는 입력한 글, 현재 날짜·시간, 앱 언어, 알림 말투 설정</td></tr>
     <tr><td>이용 목적</td><td colspan="2">요청한 일정·할 일 분석</td></tr>
-    <tr><td>보유·이용 기간</td><td>Anthropic의 서비스 조건과 운영 계정의 설정에 따름 <span class="todo">[확인 필요: 실제 보관 기간]</span></td><td>Google의 서비스 조건과 운영 프로젝트의 서비스 유형·설정에 따름 <span class="todo">[확인 필요: 유료 등급 적용 여부와 보관 기간]</span></td></tr>
+    <tr><td>보유·이용 기간</td><td>받은 날부터 30일 안에 삭제. 다만 이용 정책 위반이 감지되면 최대 2년, 법에서 요구하면 그 기간 동안 보관될 수 있습니다.</td><td>유료 서비스로 이용하며, 정책 위반을 감지하고 막기 위한 목적으로만 제한된 기간 기록합니다. 제품 개선에는 쓰지 않습니다.</td></tr>
   </table></div>
-  <p><span class="todo">[확인 필요: Supabase 프로젝트 리전이 국외라면 Supabase도 이 표에 추가]</span></p>
+  <p>또한 Mora의 서버는 싱가포르에 있는 Supabase에서 운영합니다. 인터넷에 연결된 상태로 앱을 열면 익명 계정이 만들어지고, 아래 서버 기록이 국외(싱가포르)에 저장됩니다. 이를 원하지 않으면 인터넷을 끈 채로 일정·루틴을 쓸 수 있지만, 이 경우 AI 분석과 구독은 쓸 수 없습니다.</p>
+  <div class="table-wrap"><table>
+    <tr><th>구분</th><th>Supabase</th></tr>
+    <tr><td>이전받는 자</td><td>Supabase Pte. Ltd.<br>연락처: privacy@supabase.com</td></tr>
+    <tr><td>이전 국가</td><td>싱가포르</td></tr>
+    <tr><td>이전 시점·방법</td><td>앱이 서버에 연결될 때(익명 계정 생성, AI 분석, 구독 확인)마다 암호화 통신(HTTPS/TLS)으로 전송</td></tr>
+    <tr><td>이전 항목</td><td>익명 계정 식별자, AI 요청 내용과 그 결과(위 AI 이전 항목과 같음), 입력 해시, 일별 사용량, 구독 거래 연결 정보, 최소한의 운영 기록</td></tr>
+    <tr><td>이용 목적</td><td>서버 운영, AI 무료 횟수 관리, 구독 확인</td></tr>
+    <tr><td>보유·이용 기간</td><td>아래 4. 보관 및 삭제의 기간을 따릅니다.</td></tr>
+  </table></div>
   <h2>4. 보관 및 삭제</h2>
   <ul>
     <li>로그인 없이 만든 일정은 기기에 보관합니다. 이미 Apple로 로그인한 계정의 일정은 기기 안에 따로 보관하며, 사용자가 선택하면 로그인 없이 만든 일정을 그 계정으로 복사할 수 있고 원본은 유지됩니다. Apple 로그인 계정을 삭제하면 그 계정의 기기 일정이 제거됩니다. 로그인 없이 만든 일정과 다른 기기의 로컬 사본은 각각 해당 기기에서 지워야 합니다.</li>
     <li>이전 버전의 앱에서 만든 연령 확인 기록(계정 식별자, 정책 버전, 확인 시각)이 서버에 남아 있을 수 있으며, 이 기록은 계정을 삭제할 때 함께 지웁니다.</li>
-    <li>앱을 삭제해도 익명 계정과 그 서버 기록(계정 식별자, 구독 연결)은 자동으로 지워지지 않습니다. 서버 기록까지 지우려면 앱을 삭제하기 전에 <strong>설정 → 계정 삭제</strong>를 이용해 주세요. <span class="todo">[확인 필요: 쓰지 않는 익명 계정의 보관 기간과 정리 방식]</span></li>
+    <li>앱을 삭제해도 익명 계정과 그 서버 기록(계정 식별자, 구독 연결)은 자동으로 지워지지 않습니다. 서버 기록까지 지우려면 앱을 삭제하기 전에 <strong>설정 → 계정 삭제</strong>를 이용해 주세요. 익명 계정은 이름·이메일 같은 정보를 담지 않으며, 사용자가 앱에서 삭제할 때까지 보관합니다. 앱을 지운 뒤에는 그 익명 계정을 찾을 방법이 없으므로, 앱을 지우기 전에 삭제해 주세요.</li>
     <li>서버의 AI 결과 재사용 기간은 10분입니다. 만료 후 정리 작업이 결과를 제거합니다. 요청·사용량 및 상세 운영 기록은 최대 14일의 보존 기간을 두고 정리하며, 일별 운영 통계는 90일 보관합니다. 정리 작업은 주기적으로 실행되므로 만료 시점과 실제 제거 시점에 차이가 있을 수 있습니다.</li>
     <li>계정 삭제 확인 기록은 삭제 완료 후 30일 보관할 수 있습니다. 삭제가 완료되지 않은 요청과 재시도 상태는 절차를 마칠 때까지 보관합니다. App Store 서버 알림 기록은 90일, 구독의 부정한 재연결을 방지하는 제한된 거래 표식은 계정 삭제 시점부터 최대 400일 보관할 수 있으며 후속 알림이 와도 이 기한은 연장하지 않습니다. 이러한 기록은 일정 백업을 위한 것이 아닙니다.</li>
     <li>다른 계정과 구독을 이어 쓰는 연결 기록은 그 계정이 삭제되거나 5개 상한을 넘어 연결이 풀릴 때 지웁니다. 삭제된 계정이 등록한 구독 거래를 다른 계정이 아직 이어 쓰고 있으면, 그 거래 기록은 연결이 모두 끝날 때까지 보관한 뒤 원래 보관 기한을 적용합니다.</li>
@@ -286,19 +295,28 @@
   <p>When you have consented to AI data sharing and finish speaking or send typed text, information is transferred outside Korea as shown below. If you do not consent or withdraw consent, nothing is sent, and every feature other than AI analysis keeps working.</p>
   <div class="table-wrap"><table>
     <tr><th>Item</th><th>Anthropic</th><th>Google</th></tr>
-    <tr><td>Recipient</td><td>Anthropic (Claude API) <span class="todo">[TODO: contracting entity and contact]</span></td><td>Google (Gemini API) <span class="todo">[TODO: contracting entity and contact]</span></td></tr>
-    <tr><td>Country</td><td><span class="todo">[TODO]</span></td><td><span class="todo">[TODO]</span></td></tr>
+    <tr><td>Recipient</td><td>Anthropic, PBC (Claude API)<br>Contact: privacy@anthropic.com</td><td>Google Cloud Korea LLC (Gemini API, Paid Services)<br>Contact: Gangnam Finance Center 20F, 152 Teheran-ro, Gangnam-gu, Seoul, Korea</td></tr>
+    <tr><td>Country</td><td>The United States and other countries where Anthropic processes data</td><td>The United States and other countries where Google has facilities (including transient storage and caching)</td></tr>
     <tr><td>When and how</td><td>Each time you finish speaking or send typed text, through our Supabase server over encrypted connections (HTTPS/TLS)</td><td>The same way, when Claude is unavailable or does not return a valid result</td></tr>
     <tr><td>Items</td><td colspan="2">Your speech transcript or typed text, current date/time, app language, reminder tone setting</td></tr>
     <tr><td>Purpose</td><td colspan="2">Analyzing the tasks and schedules you asked about</td></tr>
-    <tr><td>Retention</td><td>Per Anthropic's service terms and the operating account's settings <span class="todo">[TODO: actual retention period]</span></td><td>Per Google's service terms and the operating project's service type and settings <span class="todo">[TODO: paid tier status and retention period]</span></td></tr>
+    <tr><td>Retention</td><td>Deleted within 30 days of receipt. If a usage policy violation is detected, it may be kept for up to 2 years, or longer where the law requires.</td><td>Used as a Paid Service. Logged for a limited period solely to detect and prevent policy violations, and not used to improve Google products.</td></tr>
   </table></div>
-  <p><span class="todo">[TODO: if the Supabase project region is outside Korea, add Supabase to this table]</span></p>
+  <p>Mora's server also runs on Supabase in Singapore. When you open the app while online, an anonymous account is created and the server records below are stored outside Korea (in Singapore). If you do not want this, you can use schedules and routines with the internet turned off, but AI analysis and subscriptions will not be available.</p>
+  <div class="table-wrap"><table>
+    <tr><th>Item</th><th>Supabase</th></tr>
+    <tr><td>Recipient</td><td>Supabase Pte. Ltd.<br>Contact: privacy@supabase.com</td></tr>
+    <tr><td>Country</td><td>Singapore</td></tr>
+    <tr><td>When and how</td><td>Whenever the app connects to the server (creating the anonymous account, AI analysis, subscription checks), over encrypted connections (HTTPS/TLS)</td></tr>
+    <tr><td>Items</td><td>Anonymous account identifier, AI requests and their results (the same items as the AI transfer above), input hashes, daily usage, subscription transaction links, minimal operational records</td></tr>
+    <tr><td>Purpose</td><td>Running the server, managing the free AI allowance, verifying subscriptions</td></tr>
+    <tr><td>Retention</td><td>As described in 4. Retention and removal below</td></tr>
+  </table></div>
   <h2>4. Retention and removal</h2>
   <ul>
     <li>Schedules created without signing in are stored on the device. Schedules of an account already signed in with Apple are stored separately on the device; you may choose to copy schedules created without signing in into that account, and the originals remain. Deleting an Apple sign-in account removes that account’s local schedules. Schedules created without signing in and local copies on other devices must be removed on their respective devices.</li>
     <li>Earlier versions of the app may have stored an age confirmation record on our server (account identifier, policy version and confirmation time); it is deleted when the account is deleted.</li>
-    <li>Deleting the app does not automatically remove the anonymous account or its server records (account identifier and subscription links). To remove the server records too, use <strong>Settings → Delete Account</strong> before deleting the app. <span class="todo">[TODO: retention period and cleanup for unused anonymous accounts]</span></li>
+    <li>Deleting the app does not automatically remove the anonymous account or its server records (account identifier and subscription links). To remove the server records too, use <strong>Settings → Delete Account</strong> before deleting the app. The anonymous account holds no name or email and is kept until you delete it in the app. After the app is deleted there is no way to find that anonymous account, so please delete it before removing the app.</li>
     <li>Server AI results can be reused for 10 minutes; scheduled cleanup removes expired results. Request, quota and detailed operational records use retention periods of up to 14 days; daily operational aggregates use 90 days. Cleanup runs periodically, so expiry and physical removal may occur at different times.</li>
     <li>Deletion records may be retained for 30 days after completion. Incomplete requests and retry state remain until the deletion process is resolved. App Store notification records may remain for 90 days. Limited transaction markers preventing abusive subscription rebinding may remain for up to 400 days from account deletion. Later notifications do not extend this deadline. These records are not task backups.</li>
     <li>A link that lets another account share a subscription is removed when that account is deleted or unlinked by the 5-account limit. If other accounts still share a subscription registered by a deleted account, its transaction record is kept until no linked account remains, and the original retention deadline then applies.</li>
@@ -344,19 +362,28 @@
   <p>AIへのデータ送信に同意したうえで話し終えるか文章を送信すると、次のとおり情報が国外に送信されます。同意しない場合や同意を撤回した場合は送信せず、AI分析以外の機能はそのまま利用できます。</p>
   <div class="table-wrap"><table>
     <tr><th>項目</th><th>Anthropic</th><th>Google</th></tr>
-    <tr><td>移転先</td><td>Anthropic（Claude API）<span class="todo">[要確認：契約法人名・連絡先]</span></td><td>Google（Gemini API）<span class="todo">[要確認：契約法人名・連絡先]</span></td></tr>
-    <tr><td>移転先の国</td><td><span class="todo">[要確認]</span></td><td><span class="todo">[要確認]</span></td></tr>
+    <tr><td>移転先</td><td>Anthropic, PBC（Claude API）<br>連絡先：privacy@anthropic.com</td><td>Google Cloud Korea LLC（Gemini API 有料サービス）<br>連絡先：大韓民国ソウル特別市江南区テヘラン路152 江南ファイナンスセンター20階</td></tr>
+    <tr><td>移転先の国</td><td>米国など、Anthropicがデータを処理する国</td><td>米国など、Googleが施設を置く国（一時保存・キャッシュを含む）</td></tr>
     <tr><td>移転の時期・方法</td><td>話し終えるか文章を送信するたびに、Supabaseのサーバーを経由して暗号化通信（HTTPS/TLS）で送信</td><td>Claudeが利用できない場合や有効な結果を得られない場合に、同じ方法で送信</td></tr>
     <tr><td>移転する項目</td><td colspan="2">音声を文字にした文章または入力した文章、現在の日時、アプリの言語、通知の口調の設定</td></tr>
     <tr><td>利用目的</td><td colspan="2">依頼された予定・タスクの分析</td></tr>
-    <tr><td>保存期間</td><td>Anthropicの規約と運用アカウントの設定に従う <span class="todo">[要確認：実際の保存期間]</span></td><td>Googleの規約と運用プロジェクトのサービス種別・設定に従う <span class="todo">[要確認：有料枠の適用有無と保存期間]</span></td></tr>
+    <tr><td>保存期間</td><td>受信から30日以内に削除します。ただし利用ポリシー違反が検知された場合は最大2年、法律で求められる場合はその期間保存されることがあります。</td><td>有料サービスとして利用し、ポリシー違反の検知と防止のためだけに限られた期間記録します。Googleの製品改善には使われません。</td></tr>
   </table></div>
-  <p><span class="todo">[要確認：Supabaseプロジェクトのリージョンが国外であれば、Supabaseもこの表に追加]</span></p>
+  <p>また、MoraのサーバーはシンガポールにあるSupabaseで運用しています。インターネットに接続した状態でアプリを開くと匿名アカウントが作られ、次のサーバー記録が国外（シンガポール）に保存されます。これを望まない場合はインターネットをオフにして予定やルーティンを使えますが、AI分析とサブスクリプションは利用できません。</p>
+  <div class="table-wrap"><table>
+    <tr><th>項目</th><th>Supabase</th></tr>
+    <tr><td>移転先</td><td>Supabase Pte. Ltd.<br>連絡先：privacy@supabase.com</td></tr>
+    <tr><td>移転先の国</td><td>シンガポール</td></tr>
+    <tr><td>移転の時期・方法</td><td>アプリがサーバーに接続するたび（匿名アカウントの作成、AI分析、購読の確認）に、暗号化通信（HTTPS/TLS）で送信</td></tr>
+    <tr><td>移転する項目</td><td>匿名アカウント識別子、AIリクエストの内容とその結果（上記のAIへの移転項目と同じ）、入力ハッシュ、日ごとの利用回数、購読の取引の関連付け、最小限の運用記録</td></tr>
+    <tr><td>利用目的</td><td>サーバーの運用、無料のAI利用回数の管理、購読の確認</td></tr>
+    <tr><td>保存期間</td><td>下記「4. 保存期間と削除」の期間に従います</td></tr>
+  </table></div>
   <h2>4. 保存期間と削除</h2>
   <ul>
     <li>サインインせずに作成した予定は端末に保存します。すでにAppleでサインインしているアカウントの予定は端末内で別に保存し、希望する場合はサインインせずに作成した予定をそのアカウントにコピーでき、元の予定は残ります。Appleでサインインしたアカウントを削除すると、そのアカウントの端末内の予定を削除します。サインインせずに作成した予定や別の端末にあるローカルのコピーは、それぞれの端末で削除する必要があります。</li>
     <li>以前のバージョンのアプリで作成された年齢確認の記録（アカウント識別子、ポリシーのバージョン、確認日時）がサーバーに残っている場合がありますが、アカウントを削除すると一緒に削除します。</li>
-    <li>アプリを削除しても、匿名アカウントとそのサーバー記録（アカウント識別子、サブスクリプションの関連付け）は自動では削除されません。サーバー記録も削除するには、アプリを削除する前に<strong>設定 → アカウント削除</strong>をご利用ください。<span class="todo">[要確認：使われていない匿名アカウントの保存期間と整理方法]</span></li>
+    <li>アプリを削除しても、匿名アカウントとそのサーバー記録（アカウント識別子、サブスクリプションの関連付け）は自動では削除されません。サーバー記録も削除するには、アプリを削除する前に<strong>設定 → アカウント削除</strong>をご利用ください。匿名アカウントには氏名やメールアドレスは含まれず、アプリで削除するまで保存します。アプリを削除した後はその匿名アカウントを見つける方法がないため、アプリを削除する前に削除してください。</li>
     <li>サーバーのAI結果は10分間再利用できます。有効期限後に定期処理で結果を削除します。リクエスト、利用回数、詳細な運用記録は最長14日、日別の運用集計は90日の保存期間を設けます。処理は定期的に実行するため、期限と実際の削除のタイミングが異なる場合があります。</li>
     <li>アカウント削除の確認記録は完了後30日間保持する場合があります。未完了のリクエストと再試行状態は処理が完了するまで保持します。App Storeのサーバー通知記録は90日間、不正な購読の再関連付けを防ぐ限定的な取引記録はアカウント削除時から最長400日間保持する場合があります。後続の通知があってもこの期限は延長しません。これらは予定のバックアップではありません。</li>
     <li>ほかのアカウントでサブスクリプションを共有するための関連付けの記録は、そのアカウントが削除されたときや、5アカウントの上限を超えて解除されたときに削除します。削除されたアカウントが登録した購読の取引をほかのアカウントがまだ共有している場合、その取引記録は関連付けがすべてなくなるまで保持し、その後は本来の保存期限を適用します。</li>
